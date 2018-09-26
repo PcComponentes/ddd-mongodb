@@ -1,0 +1,26 @@
+{
+  "name": "pccomponentes/ddd-mongodb",
+  "description": "PostgreSql repository implementations",
+  "authors": [
+    {
+      "name": "Juan G. Rodríguez Carrión",
+      "email": "juan.rodriguez@pccomponentes.com"
+    }
+  ],
+  "license": "MIT",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "Pccomponentes\\DddMongoDb\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^7.2",
+    "mongodb/mongodb": "^1.4",
+    "pccomponentes/ddd": "^1.0"
+  },
+  "require-dev": {
+    "pccomponentes/ganchudo": "^1.0",
+    "squizlabs/php_codesniffer": "^3.3"
+  }
+}
