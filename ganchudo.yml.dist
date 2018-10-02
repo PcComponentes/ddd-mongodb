@@ -1,11 +1,11 @@
 ganchudo:
     inspectors:
         -   name: 'Composer Validation'
-            command: 'composer.phar validate --strict'
+            command: 'composer validate --strict'
         -   name: 'Php Linter'
             command: 'php -l <iterator>'
             iterator:
-                in: ['src', 'tests']
+                in: ['src']
                 exclude: []
                 file: '*.php'
         -   name: 'Php Code Sniffer'
