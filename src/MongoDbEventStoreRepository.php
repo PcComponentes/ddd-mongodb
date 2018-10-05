@@ -106,7 +106,7 @@ class MongoDbEventStoreRepository implements EventStoreRepository
             ->find(
                 [
                     $field => $value,
-                    'occurred_on' => ['$gt' => $since]
+                    'occurred_on' => ['$gte' => new UTCDateTime($since)]
                 ],
                 ['sort' => ['occurred_on' => 1]]
             );
