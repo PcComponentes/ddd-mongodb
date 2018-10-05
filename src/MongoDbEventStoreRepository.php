@@ -14,7 +14,7 @@ class MongoDbEventStoreRepository implements EventStoreRepository
     private $collection;
     private $unserializer;
 
-    final public function __construct(
+    public function __construct(
         Collection $collection,
         DomainEventUnserializer $unserializer
     ) {
@@ -63,6 +63,16 @@ class MongoDbEventStoreRepository implements EventStoreRepository
         return $this->findSince('name', $messageName, $since);
     }
 
+    protected function collection(): Collection
+    {
+        return $this->collection;
+    }
+
+    protected function unserializer(): DomainEventUnserializer
+    {
+        return $this->unserializer;
+    }
+
     private function find(string $field, $value): array
     {
         $messageCursor = $this
@@ -109,7 +119,7 @@ class MongoDbEventStoreRepository implements EventStoreRepository
         return $mapped;
     }
 
-    private function toAssoc($message): array
+    protected function toAssoc($message): array
     {
         return \json_decode(\json_encode($message), true);
     }
